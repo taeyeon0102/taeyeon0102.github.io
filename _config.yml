@@ -14,7 +14,7 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: "태연의 개발 기록"  # the main title
+title: 태연의 개발 기록  # the main title
 
 tagline: Vision & On-Device AI 연구 기록 # it will display as the subtitle
 
