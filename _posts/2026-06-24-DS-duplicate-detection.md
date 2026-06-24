@@ -177,14 +177,14 @@ Code
 
 ### [Figure 1] compare each algorithm
 <figure>
-<img src="./images/media/image1.png"
-style="width:6.28176in;height:3.76934in" />
+<img src="/assets/img/DSHW1_Figure_1.png"
+style="width: 100%; aspect-ratio: 16 / 9;" />
 </figure>
 
 ### [Figure 2] compare each algorithm (y-log scale)
 <figure>
-<img src="./images/media/image2.png"
-style="width:6.26806in;height:3.76111in" />
+<img src="/assets/img/DSHW1_Figure_2.png"
+style="width: 100%; aspect-ratio: 16 / 9;" />
 </figure>
 
 ---
