@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Profile README</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #f4a7b9;
+    --pink-light: #fce8ed;
+    --pink-deep: #e8849a;
+    --text: #1a1a1a;
+    --text-muted: #888;
+    --border: #ebebeb;
+    --bg: #ffffff;
+    --bg-soft: #fafafa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  .page {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    padding: 48px 56px 44px;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.45s ease 0.05s forwards;
+  }
+
+  /* top row: tag + links */
+  .header-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .header-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    background: var(--pink-light);
+    padding: 3px 11px;
+    border-radius: 20px;
+  }
+
+  .links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .link-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 5px 13px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .link-badge:hover {
+    border-color: var(--pink);
+    color: var(--pink-deep);
+    background: var(--pink-light);
+  }
+
+  .link-badge svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+  /* headline: name */
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 46px;
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.5px;
+    margin-bottom: 28px;
+  }
+
+  .accent { color: var(--pink-deep); }
+
+  /* photo + bubble row */
+  .header-intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  /* ── Photo ── */
+  .photo-wrap {
+    flex-shrink: 0;
+    position: relative;
+    width: 130px;
+    height: 130px;
+  }
+
+  .photo-circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--pink-light);
+    background: var(--bg-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    position: relative;
+  }
+
+  .photo-circle:hover { border-color: var(--pink); }
+
+  .photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+  }
+
+  .photo-placeholder svg { width: 32px; height: 32px; opacity: 0.4; }
+
+  .photo-placeholder span {
+    font-size: 10px;
+    text-align: center;
+    line-height: 1.4;
+    opacity: 0.6;
+  }
+
+  /* hidden file input */
+  #photo-input { display: none; }
+
+  /* ── Speech Bubble ── */
+  .bubble {
+    flex: 1;
+    min-width: 0;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 20px 20px 20px 4px;
+    padding: 20px 24px;
+    position: relative;
+    min-height: 110px;
+    transition: border-color 0.2s;
+  }
+
+  .bubble:focus-within { border-color: var(--pink); }
+
+  /* tail */
+  .bubble::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 28px;
+    width: 0; height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 10px solid var(--border);
+  }
+
+  .bubble::after {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 29px;
+    width: 0; height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 9px solid var(--bg-soft);
+  }
+
+  .bubble-hint {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    font-weight: 500;
+    margin-bottom: 8px;
+    opacity: 0.8;
+  }
+
+  .bubble textarea {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    resize: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.75;
+    min-height: 72px;
+  }
+
+  .bubble textarea::placeholder { color: var(--text-muted); }
+
+  /* ===== TWO-COLUMN BODY (no divider) ===== */
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 0;
+  }
+
+  .col { padding: 48px 56px; }
+
+  /* ===== SECTION ===== */
+  .section {
+    margin-bottom: 52px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .col-left  .section:nth-child(1) { animation-delay: 0.10s; }
+  .col-left  .section:nth-child(2) { animation-delay: 0.17s; }
+  .col-left  .section:nth-child(3) { animation-delay: 0.24s; }
+  .col-right .section:nth-child(1) { animation-delay: 0.14s; }
+  .col-right .section:nth-child(2) { animation-delay: 0.21s; }
+  .col-right .section:nth-child(3) { animation-delay: 0.28s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .section > p {
+    font-size: 14px;
+    color: #555;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  /* ===== ABOUT GRID ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .about-item {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+
+  .about-item .lbl {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--pink-deep);
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+
+  .about-item .val {
+    color: var(--text);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  /* ===== TECH SKILLS ===== */
+  .skills-wrap {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .skill-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .skill-row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .skill-name { font-weight: 400; color: var(--text); }
+
+  .skill-level {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .skill-bar-bg {
+    height: 4px;
+    background: var(--border);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pink) 0%, var(--pink-deep) 100%);
+    border-radius: 99px;
+    width: 0;
+    transition: width 1s ease 0.3s;
+  }
+
+  /* tag-style skills (for tools/languages without bars) */
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .skill-tag {
+    font-size: 12px;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--bg-soft);
+    transition: all 0.2s;
+  }
+
+  .skill-tag:hover {
+    border-color: var(--pink);
+    color: var(--pink-deep);
+    background: var(--pink-light);
+  }
+
+  /* ===== COURSEWORK ===== */
+  .course-grid {
+    display: grid;
+    gap: 6px;
+    margin-top: 18px;
+  }
+
+  .course-hidden {
+    display: grid;
+    gap: 6px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.35s ease, margin-top 0.3s ease;
+    margin-top: 0;
+  }
+
+  .course-hidden.expanded {
+    max-height: 800px;
+    opacity: 1;
+    margin-top: 6px;
+  }
+
+  .course-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 16px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    font-size: 13px;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a.course-row:hover {
+    border-color: var(--pink);
+    background: var(--pink-light);
+    transform: translateX(3px);
+  }
+
+  a.course-row:hover .course-link-icon { opacity: 1; transform: translate(1px, -1px); }
+
+  .course-name {
+    font-weight: 400;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .course-link-icon {
+    font-size: 11px;
+    color: var(--pink-deep);
+    opacity: 0;
+    transition: all 0.2s;
+  }
+
+  .course-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .course-tag {
+    font-size: 10px;
+    color: var(--pink-deep);
+    background: var(--pink-light);
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .course-semester {
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .course-more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 8px;
+    width: 100%;
+    padding: 10px;
+    border: 1px dashed var(--border);
+    border-radius: 9px;
+    background: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .course-more-btn:hover {
+    border-color: var(--pink);
+    color: var(--pink-deep);
+    background: var(--pink-light);
+  }
+
+  .course-more-btn .btn-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 10px;
+  }
+
+  .course-more-btn.open .btn-arrow { transform: rotate(180deg); }
+
+  /* ===== GITHUB STATS ===== */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .stat-card {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .stat-card:hover {
+    border-color: var(--pink);
+    transform: translateY(-2px);
+  }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-num .stat-unit {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-muted);
+  }
+
+  .stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--pink-deep);
+    font-weight: 500;
+  }
+
+  /* ===== PROJECTS ===== */
+  .project-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: all 0.25s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .project-card:hover {
+    border-color: var(--pink);
+    box-shadow: 0 4px 18px rgba(244,167,185,0.14);
+    transform: translateY(-2px);
+  }
+
+  .project-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 7px;
+  }
+
+  .project-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .project-arrow {
+    font-size: 14px;
+    color: var(--pink);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    margin-left: 8px;
+  }
+
+  .project-card:hover .project-arrow { transform: translate(2px,-2px); }
+
+  .project-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  /* ===== ACTIVITIES ===== */
+  .activity-list {
+    margin-top: 18px;
+    display: grid;
+    gap: 8px;
+  }
+
+  .activity-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 16px;
+    background: var(--bg-soft);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+
+  .activity-item:hover { border-color: var(--pink); }
+
+  .activity-icon { font-size: 17px; line-height: 1.5; flex-shrink: 0; }
+
+  .activity-body { flex: 1; min-width: 0; }
+
+  .activity-title { font-weight: 500; font-size: 13px; margin-bottom: 2px; color: var(--text); }
+
+  .activity-sub { font-size: 12px; color: var(--text-muted); font-weight: 300; }
+
+  .activity-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--pink-deep);
+    text-decoration: none;
+    margin-top: 6px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .activity-link:hover { opacity: 0.65; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 22px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .footer-dot {
+    width: 6px; height: 6px;
+    background: var(--pink);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .header { padding: 40px 32px 36px; }
+    .columns { grid-template-columns: 1fr; }
+    .col { padding: 36px 32px; }
+    .footer { padding: 22px 32px; }
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 560px) {
+    .header { padding: 32px 20px 28px; }
+    .header h1 { font-size: 36px; }
+    .header-intro { flex-direction: column; align-items: center; }
+    .bubble { border-radius: 20px; }
+    .bubble::before, .bubble::after { display: none; }
+    .col { padding: 28px 20px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .footer { padding: 18px 20px; flex-direction: column; gap: 6px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+
+    <!-- top bar: tag + links -->
+    <div class="header-topbar">
+      <div class="header-tag">My page</div>
+      <div class="links">
+        <a class="link-badge" href="mailto:taeyeon0102.work@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>Email
+        </a>
+        <a class="link-badge" href="#">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn
+        </a>
+        <a class="link-badge" href="https://everforever.tistory.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>Blog
+        </a>
+        <a class="link-badge" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 010 20M12 2a14.5 14.5 0 000 20M2 12h20"/></svg>Portfolio
+        </a>
+      </div>
+    </div>
+
+    <!-- name -->
+    <h1>Hi, I'm <span class="accent">Kim Taeyeon</span></h1>
+
+    <!-- photo + bubble -->
+    <div class="header-intro">
+
+      <!-- 사진 영역 (클릭해서 업로드) -->
+      <div class="photo-wrap">
+        <div class="photo-circle" onclick="document.getElementById('photo-input').click()" title="클릭해서 사진 업로드">
+          <div class="photo-placeholder" id="photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span>사진 업로드</span>
+          </div>
+          <img id="photo-img" src="" alt="프로필 사진" style="display:none;">
+        </div>
+        <input type="file" id="photo-input" accept="image/*" onchange="loadPhoto(event)">
+      </div>
+
+      <!-- 말풍선 소개 -->
+      <div class="bubble">
+        <div class="bubble-hint">Intro</div>
+        <textarea rows="4" placeholder="안녕하세요! 여러 컴퓨터 분야를 공부하며 알아가는 중이지만, 현재 AI와 컴퓨터 비전에 관심이 많습니다. 관심 분야를 지속적으로 탐색하며 이론적 바탕을 공부하고 있습니다.
+      "></textarea>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ===== TWO COLUMNS (no divider) ===== -->
+  <main class="columns">
+
+    <!-- ── LEFT ── -->
+    <div class="col col-left">
+
+      <!-- ABOUT ME -->
+      <div class="section">
+        <div class="section-label">About Me</div>
+        <div class="about-grid">
+          <div class="about-item"><div class="lbl">University</div><div class="val">한국외국어대학교 컴퓨터공학부</div></div>
+          <div class="about-item"><div class="lbl">Grade</div><div class="val">2학년 (2026)</div></div>
+          <div class="about-item"><div class="lbl">Interests</div><div class="val">알고리즘, AI, 빅데이터처리</div></div>
+          <div class="about-item"><div class="lbl">Goal</div><div class="val">문제 해결 능력을 갖춘 소프트웨어 엔지니어</div></div>
+        </div>
+      </div>
+
+      <!-- TECHNICAL SKILLS -->
+      <div class="section" id="skills-section">
+        <div class="section-label">Technical Skills</div>
+        <div class="skills-wrap">
+          <div class="skill-row">
+            <div class="skill-row-top">
+              <span class="skill-name">Python</span>
+              <span class="skill-level">중급</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-row-top">
+              <span class="skill-name">C / C++</span>
+              <span class="skill-level">중급</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="60%"></div></div>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">VS Code</span>
+        </div>
+      </div>
+
+      <!-- COURSEWORK -->
+      <div class="section">
+        <div class="section-label">Coursework & Studies</div>
+        <div class="course-grid">
+          <a class="course-row" href="https://your-blog.com/computer-architecture" target="_blank" rel="noopener">
+            <span class="course-name">컴퓨터구조 <span class="course-link-icon">↗</span></span>
+            <div class="course-meta"><span class="course-tag">전공</span><span class="course-semester">2026 1학기</span></div>
+          </a>
+          <a class="course-row" href="#" target="_blank" rel="noopener">
+            <span class="course-name">컴퓨터비전개론 <span class="course-link-icon">↗</span></span>
+            <div class="course-meta"><span class="course-tag">전공</span><span class="course-semester">2026 1학기</span></div>
+          </a>
+          <a class="course-row" href="#" target="_blank" rel="noopener">
+            <span class="course-name">컴퓨터그래픽스 <span class="course-link-icon">↗</span></span>
+            <div class="course-meta"><span class="course-tag">전공</span><span class="course-semester">2026 1학기</span></div>
+          </a>
+          <a class="course-row" href="#" target="_blank" rel="noopener">
+            <span class="course-name">빅데이터처리 <span class="course-link-icon">↗</span></span>
+            <div class="course-meta"><span class="course-tag">전공</span><span class="course-semester">2026 1학기</span></div>
+          </a>
+        </div>
+
+        <div class="course-hidden" id="course-extra">
+          <a class="course-row" href="#" target="_blank" rel="noopener">
+            <span class="course-name">자료구조 <span class="course-link-icon">↗</span></span>
+            <div class="course-meta"><span class="course-tag">전공필수</span><span class="course-semester">2026 1학기</span></div>
+          </a>
+          <a class="course-row" href="#" target="_blank" rel="noopener">
+            <span class="course-name">논리회로 <span class="course-link-icon">↗</span></span>
+            <div class="course-meta"><span class="course-tag">전공</span><span class="course-semester">2026 1학기</span></div>
+          </a>
+          <a class="course-row" href="#" target="_blank" rel="noopener">
+            <span class="course-name">컴퓨터프로그래밍및실습 <span class="course-link-icon">↗</span></span>
+            <div class="course-meta"><span class="course-tag">전공</span><span class="course-semester">2024 1학기</span></div>
+          </a>
+          <a class="course-row" href="#" target="_blank" rel="noopener">
+            <span class="course-name">컴퓨터시스템입문 <span class="course-link-icon">↗</span></span>
+            <div class="course-meta"><span class="course-tag">전공</span><span class="course-semester">2024 1학기</span></div>
+          </a>
+          <a class="course-row" href="#" target="_blank" rel="noopener">
+            <span class="course-name">선형대수 <span class="course-link-icon">↗</span></span>
+            <div class="course-meta"><span class="course-tag">전공</span><span class="course-semester">2024 1학기</span></div>
+          </a>
+          <a class="course-row" href="#" target="_blank" rel="noopener">
+            <span class="course-name">AI공학개론 <span class="course-link-icon">↗</span></span>
+            <div class="course-meta"><span class="course-tag">기초</span><span class="course-semester">2024 1학기</span></div>
+          </a>
+          <a class="course-row" href="#" target="_blank" rel="noopener">
+            <span class="course-name">이산수학 <span class="course-link-icon">↗</span></span>
+            <div class="course-meta"><span class="course-tag">기초</span><span class="course-semester">2024 2학기</span></div>
+          </a>
+        </div>
+
+        <button class="course-more-btn" id="course-toggle" onclick="toggleCourses()">
+          <span id="course-toggle-text">3개 더보기</span>
+          <span class="btn-arrow">▾</span>
+        </button>
+      </div>
+
+    </div><!-- /col-left -->
+
+
+      <!-- PROJECTS -->
+      <div class="section">
+        <div class="section-label">Projects</div>
+        <div class="project-list">
+          <a class="project-card" href="https://www.kaggle.com/taeyeon0102/code">
+            <div class="project-top">
+              <span class="project-name">Kaggle Competition: Titanic, House Prices, Digit Recognizer</span>
+              <span class="project-arrow">↗</span>
+            </div>
+            <p class="project-desc">AI 기초 스터디 이후, 이를 활용한 kaggle competition을 진행하였습니다. </p>
+          </a>
+          <a class="project-card" href="https://www.kaggle.com/code/tck1208/0-914-churn-prediction-imbalancehandling-stacking/edit">
+            <div class="project-top">
+              <span class="project-name">Kaggle Competiton: Predict Customer Churn</span>
+              <span class="project-arrow">↗</span>
+            </div>
+            <p class="project-desc">팀 프로젝트로 진행중인 Kaggle 대회에 참가하였습니다. 전처리 및 데이터 가공 역할을 맡았습니다.</p>
+          </a>
+          <!-- <a class="project-card" href="#">
+            <div class="project-top">
+              <span class="project-name">✨ 프로젝트 이름 3</span>
+              <span class="project-arrow">↗</span>
+            </div>
+            <p class="project-desc">개인 프로젝트로 진행 중입니다. 내용을 여기에 채워주세요.</p>
+          </a> -->
+        </div>
+      </div>
+
+      <!-- ACTIVITIES -->
+      <div class="section">
+        <div class="section-label">Activities</div>
+        <div class="activity-list">
+          <div class="activity-item">
+            <div class="activity-icon">💻</div>
+            <div class="activity-body">
+              <div class="activity-title">GDGOC on HUFS</div>
+              <div class="activity-sub">2025.09 ~ 진행중 · GTL 발표, 가을 스터디, 봄 스터디 참여 및 겨울방학 프로젝트 참여</div>
+              <a class="activity-link" href="https://your-blog.com/activity-1" target="_blank" rel="noopener">블로그에서 보기 ↗</a>
+            </div>
+          <!-- </div>
+          <div class="activity-item">
+            <div class="activity-icon">🏆</div>
+            <div class="activity-body">
+              <div class="activity-title">해커톤 / 공모전 이름</div>
+              <div class="activity-sub">날짜 · 수상 여부 또는 참여 내용</div>
+              <a class="activity-link" href="#" target="_blank" rel="noopener">블로그에서 보기 ↗</a>
+            </div> -->
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">📖</div>
+            <div class="activity-body">
+              <div class="activity-title">PNP 학회 / 보안 스터디 참여</div>
+              <div class="activity-sub">2025.09 - 2025.12 · Bandit 풀이 및 tryhackme-OWASP10</div>
+              <a class="activity-link" href="#" target="_blank" rel="noopener">블로그에서 보기 ↗</a>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">📖</div>
+            <div class="activity-body">
+              <div class="activity-title">PNP 학회 / 알고리즘 스터디 참여</div>
+              <div class="activity-sub">2025.03 - 2025.06 · 매주 백준 문제를 풀고 발표</div>
+              <a class="activity-link" href="https://everforever.tistory.com/category/study/PnP" target="_blank" rel="noopener">블로그에서 보기 ↗</a>
+            </div>
+        </div>
+      </div>
+
+    </div><!-- /col-right -->
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <span><span class="footer-dot"></span>Last updated 2025</span>
+    <span>✉️ taeyeon0102.work@gmail.com</span>
+  </footer>
+
+</div>
+
+<script>
+  /* ── 사진 업로드 ── */
+  function loadPhoto(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      const img = document.getElementById('photo-img');
+      const placeholder = document.getElementById('photo-placeholder');
+      img.src = ev.target.result;
+      img.style.display = 'block';
+      placeholder.style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  /* ── 수강 과목 더보기 ── */
+  function toggleCourses() {
+    const extra  = document.getElementById('course-extra');
+    const btn    = document.getElementById('course-toggle');
+    const text   = document.getElementById('course-toggle-text');
+    const isOpen = extra.classList.contains('expanded');
+    extra.classList.toggle('expanded', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    text.textContent = isOpen ? '3개 더보기' : '접기';
+  }
+
+  /* ── 스킬 바 애니메이션 ── */
+  function animateBars() {
+    document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+      bar.style.width = bar.dataset.width;
+    });
+  }
+
+  const skillSection = document.getElementById('skills-section');
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      animateBars();
+      observer.disconnect();
+    }
+  }, { threshold: 0.3 });
+  observer.observe(skillSection);
+</script>
+
+</body>
+</html>
