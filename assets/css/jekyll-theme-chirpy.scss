@@ -1,0 +1,20 @@
+---
+---
+@import "main"; // 테마의 기본 스타일을 먼저 불러옵니다
+
+/* ☀️ 라이트 모드 핑크 커스텀 */
+html, html[data-mode="light"] {
+  --link-color: #e8849a;             /* 텍스트 링크, 카테고리 등 메인 핑크 */
+  --main-trigger: #f4a7b9;           /* 마우스 올렸을 때(Hover) 하이라이트 핑크 */
+  --tb-trending-icon-color: #e8849a; /* 사이드바 아이콘 등 */
+  --timeline-color: #fce8ed;         /* 타임라인 연한 핑크 배경 */
+  --prompt-info-icon-color: #e8849a; /* 안내 알림창 아이콘 */
+}
+
+/* 🌙 다크 모드 핑크 커스텀 (어두운 배경에 맞춘 선명한 핑크) */
+html[data-mode="dark"] {
+  --link-color: #ff9ebb;             /* 어두운 곳에서 잘 보이는 밝은 핑크 */
+  --main-trigger: #e8849a;           /* Hover 시 딥 핑크 */
+  --tb-trending-icon-color: #ff9ebb;
+  --prompt-info-icon-color: #ff9ebb;
+}
