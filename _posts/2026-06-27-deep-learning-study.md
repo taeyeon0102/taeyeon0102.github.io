@@ -92,3 +92,6 @@ $$
 
 ### 손글씨 숫자 인식 (MNIST)
  코드 보러가기(https://github.com/taeyeon0102/gdgoc-archive/blob/5ef607fcfdd83ae407f45b4b3498b518a034f5fa/studies/02-deep-learning/ch3-MNIST.py)
+
+
+ ## 4장 
