@@ -74,7 +74,7 @@
   --btn-share-color: #6c757d;
   --btn-share-hover-color: #bfc1ca;
   --card-bg: #1e1e1e;
-  --card-hover-bg: #464d51;
+  --card-hover-bg: rgb(62, 43, 50);
   --card-shadow:
     rgb(21 21 21 / 72%) 0 6px 18px 0, rgb(137 135 135 / 24%) 0 0 0 1px;
   --kbd-wrap-color: #6a6a6a;
@@ -318,7 +318,8 @@
     color: var(--link-color) !important;
     border-color: var(--tag-border) !important;
   }
-  /* 🌸 마우스 드래그(선택) 색상 강제 핑크 적용 */
+}
+/* 🌸 마우스 드래그(선택) 색상 강제 핑크 적용 */
   ::selection {
     background-color: rgba(232, 132, 154, 0.4) !important; /* 다크모드용 핑크 배경 */
     color: #ffffff !important; /* 글씨는 흰색으로 */
@@ -332,4 +333,3 @@
   a:active, .tag:active, #access-panel a:active {
     color: var(--link-color) !important;
   }
-}
