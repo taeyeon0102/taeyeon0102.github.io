@@ -1,0 +1,42 @@
+@mixin styles {
+  /* 다크모드 레이아웃 기본 색상 */
+  --main-bg: #1b1b1e;
+  --page-bg: #1b1b1e;
+  --box-bg: #242428;
+  --sub-box-bg: #1f1f23;
+  --box-border-color: #2e2e33;
+  --mask-bg: rgba(0, 0, 0, 0.5);
+  --nav-panel-bg: #1b1b1e;
+  --main-border-color: #2e2e33;
+
+  /* 텍스트 색상 */
+  --text-color: #c9c9cb;
+  --text-muted-color: #75757a;
+  --heading-color: #e0e0e2;
+  --blockquote-border-color: #e8849a;
+  --blockquote-text-color: #75757a;
+
+  /* 🌸 다크모드 핑크 포인트 */
+  --link-color: #ff9ebb;              /* 조금 더 밝은 야광 핑크 */
+  --link-underline-color: #e8849a;
+  --main-trigger: #e8849a;
+  --sidebar-active-color: #ff9ebb;
+  --timeline-color: #2e2e33;
+  --timeline-node-bg: #e8849a;
+  --tb-trending-icon-color: #ff9ebb;
+  --prompt-info-icon-color: #ff9ebb;
+
+  /* 사이드바 */
+  --sidebar-bg: #161618;
+  --sidebar-text-color: #6e6e73;
+  --sidebar-muted-color: #3a3a3c;
+  --sidebar-active-bg: #222224;
+
+  /* 배지 및 태그 */
+  --badge-tag-bg: #2e2224;
+  --badge-tag-color: #ff9ebb;
+  --badge-category-bg: #242428;
+  --badge-category-color: #9a9a9e;
+  --card-header-bg: #242428;
+  --card-bg: #1b1b1e;
+}

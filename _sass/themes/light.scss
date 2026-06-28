@@ -1,0 +1,42 @@
+@mixin styles {
+  /* 본문 및 레이아웃 기본 색상 */
+  --main-bg: #ffffff;
+  --page-bg: #ffffff;
+  --box-bg: #ffffff;
+  --sub-box-bg: #fafafa;
+  --box-border-color: #ebebeb;
+  --mask-bg: rgba(0, 0, 0, 0.05);
+  --nav-panel-bg: #fafafa;
+  --main-border-color: #f3f3f3;
+
+  /* 텍스트 색상 */
+  --text-color: #1a1a1a;
+  --text-muted-color: #888888;
+  --heading-color: #000000;
+  --blockquote-border-color: #f4a7b9;
+  --blockquote-text-color: #888888;
+
+  /* 🌸 태연님의 메인 핑크 포인트 */
+  --link-color: #e8849a;              /* 링크 텍스트 */
+  --link-underline-color: #f4a7b9;    /* 링크 밑줄 */
+  --main-trigger: #f4a7b9;            /* 메뉴 활성화 및 Hover */
+  --sidebar-active-color: #e8849a;    /* 사이드바 활성화 */
+  --timeline-color: #fce8ed;          /* 타임라인 선 */
+  --timeline-node-bg: #f4a7b9;        /* 타임라인 점 */
+  --tb-trending-icon-color: #e8849a;  /* 트렌딩 아이콘 */
+  --prompt-info-icon-color: #e8849a;  /* 알림창 아이콘 */
+
+  /* 사이드바 */
+  --sidebar-bg: #212529;
+  --sidebar-text-color: #7a7a7a;
+  --sidebar-muted-color: #4a4a4a;
+  --sidebar-active-bg: #2d3135;
+
+  /* 배지 및 태그 */
+  --badge-tag-bg: #fce8ed;
+  --badge-tag-color: #e8849a;
+  --badge-category-bg: #fafafa;
+  --badge-category-color: #555555;
+  --card-header-bg: #fafafa;
+  --card-bg: #ffffff;
+}
