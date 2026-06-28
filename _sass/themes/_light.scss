@@ -325,17 +325,14 @@
     border-color: var(--tag-border) !important;
   }
 }
-/* 🌸 마우스 드래그(선택) 색상 강제 핑크 적용 */
-  ::selection {
-    background-color: rgba(244, 167, 185, 0.3) !important; /* 연핑크 배경 */
-    color: #e8849a !important; /* 진핑크 글씨 */
-  }
-  ::-moz-selection {
-    background-color: rgba(244, 167, 185, 0.3) !important;
-    color: #e8849a !important;
-  }
+/* 1. 사이드바 최근 업데이트 글 호버 색상 */
+#panel-wrapper .access a:not(.post-tag):hover {
+  color: var(--link-color) !important;
+}
 
-  /* 🌸 클릭하는 순간(Active) 색상도 핑크로 고정 */
-  a:active, .tag:active, #access-panel a:active {
-    color: var(--link-color) !important;
-  }
+/* 2. 트렌딩 태그 파란색 박멸 및 핑크색 적용 */
+.post-tag:hover, .post-tag:active {
+  background-color: var(--link-color) !important;
+  color: var(--main-bg) !important; /* 배경색에 맞춰 글씨는 테마 배경색(흰색/검은색)으로 뚫어줍니다 */
+  border-color: var(--link-color) !important;
+}
