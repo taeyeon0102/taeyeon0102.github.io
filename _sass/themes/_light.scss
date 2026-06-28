@@ -324,4 +324,18 @@
     color: var(--link-color) !important;
     border-color: var(--tag-border) !important;
   }
+  /* 🌸 마우스 드래그(선택) 색상 강제 핑크 적용 */
+  ::selection {
+    background-color: rgba(244, 167, 185, 0.3) !important; /* 연핑크 배경 */
+    color: #e8849a !important; /* 진핑크 글씨 */
+  }
+  ::-moz-selection {
+    background-color: rgba(244, 167, 185, 0.3) !important;
+    color: #e8849a !important;
+  }
+
+  /* 🌸 클릭하는 순간(Active) 색상도 핑크로 고정 */
+  a:active, .tag:active, #access-panel a:active {
+    color: var(--link-color) !important;
+  }
 }
