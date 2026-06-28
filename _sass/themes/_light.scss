@@ -53,7 +53,7 @@
   --topbar-text-color: rgb(78 78 78);
   --search-border-color: rgb(240 240 240);
   --search-icon-color: #c2c6cc;
-  --input-focus-border-color: #b8b8b8;
+  --input-focus-border-color: #f4a7b9;
 
   /* Home page */
   --post-list-text-color: dimgray;
@@ -313,5 +313,15 @@
   .highlight .gs {
     color: #24292f;
     font-weight: bold;
+  }
+  /* 🌸 오른쪽 사이드바 (최근 업데이트, 트렌딩 태그) 호버 색상 강제 적용 */
+  #access-panel a:hover {
+    color: var(--link-color) !important;
+  }
+  
+  .tag:hover {
+    background-color: var(--tag-hover) !important;
+    color: var(--link-color) !important;
+    border-color: var(--tag-border) !important;
   }
 }
