@@ -125,7 +125,7 @@ graph LR
     C -->|Loop| A
 ```
 
-> 💡 4장 상세 분석 및 구현 코드는 곧 업로드될 예정입니다.*
+> [🔗 4장 자세히 보러가기](https://taeyeon0102.github.io/posts/DLstudy-ch4/)
 
 ## 5장 Backpropagation (오차역전파)
 
@@ -195,10 +195,10 @@ $$ OW=\frac{W+2P−FW}{S}+1 $$
 ---
 > **딥러닝 스터디 시리즈 연재 목록**
 > - **[현재글] 딥러닝 총정리**
-> - [2장 퍼셉트론](https://taeyeon0102.github.io/posts/DLstudy-ch2/)
-> - [3장 신경망](https://taeyeon0102.github.io/posts/DLstudy-ch3/)
-> - [4장 신경망 학습]
-> - [5장 ]
-> - [6장 ]
-> - [7장 ]
+> - [2장 퍼셉트론(Perceptron)](https://taeyeon0102.github.io/posts/DLstudy-ch2/)
+> - [3장 신경망(Neural Network)](https://taeyeon0102.github.io/posts/DLstudy-ch3/)
+> - [4장 신경망 학습](https://taeyeon0102.github.io/posts/DLstudy-ch4/)
+> - [5장 오차역전파(Backpropagation)]
+> - [6장 학습 관련 기술]
+> - [7장 CNN(Convolutional Neural Network)]
 ---
