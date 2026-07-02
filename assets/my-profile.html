@@ -715,17 +715,9 @@
 
       <!-- 사진 영역 (클릭해서 업로드) -->
       <div class="photo-wrap">
-        <div class="photo-circle" onclick="document.getElementById('photo-input').click()" title="클릭해서 사진 업로드">
-          <div class="photo-placeholder" id="photo-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
-            </svg>
-            <span>사진 업로드</span>
-          </div>
+        <div class="photo-circle">
           <img src="/assets/img/avatar.png" alt="프로필 사진" style="width:100px;">
         </div>
-        <input type="file" id="photo-input" accept="image/*" onchange="loadPhoto(event)">
       </div>
 
       <!-- 말풍선 소개 -->
