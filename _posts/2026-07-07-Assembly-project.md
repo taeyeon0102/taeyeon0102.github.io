@@ -6,6 +6,8 @@ tags: [tasm, assembly, macbook]    # 소문자 해시태그들
 math: true
 mermaid: true
 ---
+> 안녕하세요! 이번엔 컴퓨터구조 수업을 들으며 했던 어셈블리어 과제로 했던 도서관 좌석 예약 시스템에 대해서 포스팅 해보겠습니다. 이번 과제를 하면서 맥북의 슬픔을 겪었는데요, 바로 윈도우에서 돌아가는 EMU8086이 안 돌아갔습니다. 그렇다고 가상 머신까지 돌리기엔 너무 무거워서 결국에 다른 컴파일러를 사용했습니다. vscode에서 tasm을 받아서 사용했습니다! 그래도 컴파일러가 다를 뿐, 기본적으로 8086 어셈블리어를 동일하게 사용합니다. 다만 tasm은 더 옛날 것이라서 문법이 조금 더 엄격합니다. 맨 아래에 코드 링크를 연결해두었으니 보시면 좋을 것 같습니다. 역시 어셈블리어라 그런지, 코드 길이가 무려 약 1500줄에 달합니다!
+
 ## 1. 서론 및 핵심 아이디어 (Introduction and Main Idea)
 이 프로젝트의 핵심 아이디어는 x86 어셈블리(Assembly) 언어를 사용하여 기능적이고 상호작용이 가능한 도서관 좌석 예약 시스템을 구축하는 것입니다. 단순한 CRUD 프로그램을 넘어, 본 프로젝트는 배열 구조 관리, 여러 사용자 세션 간의 데이터 영속성(data persistence) 유지, 타이머를 위한 하드웨어 인터럽트(hardware interrupts) 활용 등 실용적인 로우레벨(low-level) 프로그래밍 과제를 해결하는 데 중점을 두었습니다. 이 시스템을 통해 다수의 학생이 로그인하여 사용 가능한 좌석을 조회하고, 좌석을 예약한 뒤 안전하게 로그아웃할 수 있습니다. 또한, 도서관 전체 좌석 상태를 조회하고 일과 종료 시 메모리를 초기화할 수 있는 관리자(Admin) 모드가 포함되어 있습니다.
 
@@ -74,7 +76,7 @@ mermaid: true
 ## 6. **영상**
 
 <video width="100%" controls muted playsinline>
-  <source src="https://github.com/user-attachments/assets/19655cf9-ffac-4946-a549-1d39bf80ebbc" type="video/mp4">
+  <source src="https://github.com/user-attachments/assets/28e4d1dc-b0a4-4a28-9b33-4b0fbea98dac" type="video/mp4">
   브라우저가 비디오 태그를 지원하지 않습니다.
 </video>
 
