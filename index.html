@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | 컴퓨터공학 학부연구생</title>
+    <style>
+        /* 기본 CSS 스타일 (필요에 따라 외부 CSS 파일로 분리 가능) */
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 0; 
+            color: #333; 
+        }
+        header { 
+            background-color: #f8f9fa; 
+            padding: 4rem 10% 2rem; 
+            text-align: center; 
+            border-bottom: 1px solid #eaeaea; 
+        }
+        nav { 
+            margin-top: 1.5rem; 
+        }
+        nav a { 
+            margin: 0 12px; 
+            text-decoration: none; 
+            color: #0366d6; 
+            font-weight: 600; 
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main { 
+            padding: 3rem 10%; 
+            max-width: 800px; 
+            margin: 0 auto; 
+        }
+        section { 
+            margin-bottom: 4rem; 
+        }
+        h1, h2 { color: #24292e; }
+        .project-card { 
+            border: 1px solid #e1e4e8; 
+            padding: 1.5rem; 
+            margin-bottom: 1.5rem; 
+            border-radius: 8px; 
+            transition: box-shadow 0.2s;
+        }
+        .project-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .keyword {
+            font-size: 0.85rem;
+            color: #586069;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        footer { 
+            text-align: center; 
+            padding: 2rem; 
+            background-color: #f8f9fa; 
+            font-size: 0.9rem; 
+            color: #6a737d;
+            border-top: 1px solid #eaeaea; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 상단 헤더 및 네비게이션 -->
+    <header>
+        <h1>안녕하세요, 컴퓨터공학 학부연구생 [본인 이름]입니다.</h1>
+        <p>AI 모델 경량화와 하드웨어 아키텍처 최적화 연구에 관심을 두고 있습니다.</p>
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="/blog/">📚 기술 블로그</a> <!-- 분리해둔 블로그 연결 링크 -->
+            <a href="https://github.com/본인아이디" target="_blank">GitHub</a>
+        </nav>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main>
+        <!-- 자기소개 섹션 -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                대형 언어 모델(LLM)의 효율적인 추론을 위한 하드웨어 가속기 구조와 양자화(Quantization) 기법을 주로 탐구합니다. 
+                로우레벨(Low-level) 시스템 제어부터 그래픽스 렌더링 파이프라인 구현까지, 하드웨어와 소프트웨어를 아우르는 개발을 지향합니다.
+            </p>
+        </section>
+
+        <!-- 프로젝트 이력 섹션 -->
+        <section id="projects">
+            <h2>Projects & Research</h2>
+            
+            <div class="project-card">
+                <h3>LLM 추론 가속기 및 모델 압축 연구</h3>
+                <span class="keyword">FlatQuant · GuidedQuant · Hardware Accelerator · Model Compression</span>
+                <p>대형 언어 모델의 추론 속도 및 메모리 효율 개선을 위해 다양한 양자화 및 프루닝 기법을 분석하고, 이를 뒷받침하는 하드웨어 가속기 구조를 연구하고 있습니다.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>3D 렌더링 파이프라인 및 그래픽스 알고리즘 구현</h3>
+                <span class="keyword">C++ · Rasterization · Ray-triangle intersection · Back-face culling</span>
+                <p>Rasterizer의 핵심 파이프라인을 구현하며, 노멀 매핑(Normal Mapping)과 Ray-triangle intersection 등 주요 컴퓨터 그래픽스 알고리즘을 수학적으로 분석하고 최적화했습니다.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>ARM RISC 어셈블리 기반 SRAM 데이터 제어</h3>
+                <span class="keyword">ARM Assembly · Keil · IAR Embedded Workbench</span>
+                <p>마이크로프로세서 환경에서 ARM 명령어(LDR, STR, STM 등)를 활용해 메모리 계층 구조를 이해하고, SRAM 내 배열 반전 및 최댓값 탐색 알고리즘을 로우레벨에서 직접 제어했습니다.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>뜨개질 동아리 영문 웹페이지 제작</h3>
+                <span class="keyword">HTML5 · CSS3 · Web Programming</span>
+                <p>웹 프로그래밍 프로젝트의 일환으로 대학 교내 뜨개질 동아리를 소개하는 웹페이지(myclub.html)를 기획하고 마크업을 작성했습니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 하단 푸터 -->
+    <footer>
+        <p>© 2026 [본인 이름]. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
