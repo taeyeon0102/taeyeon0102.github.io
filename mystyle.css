@@ -1,59 +1,108 @@
+/* 1. 색상 변수 정의 (블로그 테마 적용) */
+:root {
+    --pink: #f4a7b9;
+    --pink-light: #fce8ed;
+    --pink-deep: #e8849a;
+    --text: #1a1a1a;
+    --text-muted: #888;
+    --border: #ebebeb;
+    --bg: #ffffff;
+    --bg-soft: #fafafa;
+}
+
+/* 2. 전체 기본 스타일 */
 body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-            line-height: 1.6; 
-            margin: 0; 
-            padding: 0; 
-            color: #333; 
-        }
-        header { 
-            background-color: #f8f9fa; 
-            padding: 4rem 10% 2rem; 
-            text-align: center; 
-            border-bottom: 1px solid #eaeaea; 
-        }
-        nav { 
-            margin-top: 1.5rem; 
-            font-weight: 2.0em;
-        }
-        nav a { 
-            margin: 0 12px; 
-            text-decoration: none; 
-            color: #0366d6; 
-            font-weight: 600; 
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main { 
-            padding: 3rem 10%; 
-            max-width: 800px; 
-            margin: 0 auto; 
-        }
-        section { 
-            margin-bottom: 4rem; 
-        }
-        h1, h2 { color: #24292e; }
-        .project-card { 
-            border: 1px solid #e1e4e8; 
-            padding: 1.5rem; 
-            margin-bottom: 1.5rem; 
-            border-radius: 8px; 
-            transition: box-shadow 0.2s;
-        }
-        .project-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .keyword {
-            font-size: 0.85rem;
-            color: #586069;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        footer { 
-            text-align: center; 
-            padding: 2rem; 
-            background-color: #f8f9fa; 
-            font-size: 0.9rem; 
-            color: #6a737d;
-            border-top: 1px solid #eaeaea; 
-        }
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+    line-height: 1.6; 
+    margin: 0; 
+    padding: 0; 
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+/* 3. 헤더 및 네비게이션 */
+header { 
+    background-color: var(--bg-soft); 
+    padding: 4rem 10% 2rem; 
+    text-align: center; 
+    border-bottom: 1px solid var(--border); 
+}
+
+header h1 {
+    color: var(--text); /* 제목은 진한 텍스트로 가독성 확보 */
+}
+
+header p {
+    color: var(--text-muted); /* 설명글은 부드러운 색으로 처리 */
+}
+
+nav { 
+    margin-top: 1.5rem; 
+}
+
+nav a { 
+    margin: 0 12px; 
+    text-decoration: none; 
+    color: var(--pink-deep); /* 링크 기본 색상을 진한 핑크로 */
+    font-weight: 600; 
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--pink); /* 마우스 올렸을 때 화사한 핑크로 변경 */
+    text-decoration: underline;
+}
+
+/* 4. 메인 컨텐츠 영역 */
+main { 
+    padding: 3rem 10%; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+section { 
+    margin-bottom: 4rem; 
+}
+
+/* 모든 소제목에 포인트 컬러 적용 */
+h1, h2, h3 { 
+    color: var(--pink-deep); 
+}
+
+/* 5. 프로젝트 카드 스타일 */
+.project-card { 
+    border: 1px solid var(--border); 
+    padding: 1.5rem; 
+    margin-bottom: 1.5rem; 
+    border-radius: 8px; 
+    background-color: var(--bg);
+    transition: all 0.2s ease;
+}
+
+/* 카드에 마우스 올렸을 때 핑크 테두리와 은은한 그림자 효과 */
+.project-card:hover {
+    box-shadow: 0 4px 12px rgba(232, 132, 154, 0.15); /* --pink-deep 색상 기반 그림자 */
+    border-color: var(--pink);
+}
+
+/* 키워드를 둥근 태그(Tag) 형태로 강조 */
+.keyword {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--pink-deep);
+    background-color: var(--pink-light);
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    display: inline-block; 
+}
+
+/* 6. 푸터(하단 바) */
+footer { 
+    text-align: center; 
+    padding: 2rem; 
+    background-color: var(--bg-soft); 
+    font-size: 0.9rem; 
+    color: var(--text-muted);
+    border-top: 1px solid var(--border); 
+}
