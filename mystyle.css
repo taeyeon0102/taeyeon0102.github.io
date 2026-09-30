@@ -13,6 +13,7 @@ body {
         }
         nav { 
             margin-top: 1.5rem; 
+            font-weight: 2.0em;
         }
         nav a { 
             margin: 0 12px; 
