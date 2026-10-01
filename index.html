@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Kim Tae Yeon</title>
-    <link rel="stylesheet" href="mystyle.css"></link>
+    <link rel="stylesheet" href="mystyle.css">
 </head>
 <body>
 
@@ -14,30 +14,100 @@
         <p>AI 모델 경량화와 하드웨어 아키텍처 최적화 연구에 관심을 두고 있습니다.</p>
         <nav>
             <a href="#about">About Me</a>
+            <a href="#research">Studies & Research</a>
             <a href="#projects">Projects</a>
-            <a href="/blog/">Devlog</a> <!-- 분리해둔 블로그 연결 링크 -->
+            <a href="#activities">Activities</a> |
+            <a href="/blog/">Devlog</a>
             <a href="https://github.com/taeyeon0102" target="_blank">GitHub</a>
         </nav>
     </header>
 
     <!-- 메인 컨텐츠 영역 -->
     <main>
-        <!-- 자기소개 섹션 -->
+        <!-- 1. 자기소개 섹션 -->
         <section id="about">
             <h2>About Me</h2>
-            <p>
-                ####
-            </p>
+            <div class="about-content">
+                <p><strong>소프트웨어와 하드웨어의 접점을 고민하는 컴퓨터공학도입니다.</strong></p>
+                <ul>
+                    <li><strong>Education:</strong> 한국외국어대학교 컴퓨터공학 전공 (2025 ~ 현재)</li>
+                    <li><strong>Experience:</strong>자대 학부연구생 (26.08 ~ 현재)</li>
+                    <li><strong>Tech Stack:</strong> C/C++, Python, Assembly, Pytorch, Git</li>
+                    <li><strong>Core Interests:</strong> 
+                        <br>- AI Model Compression (Quantization, Pruning)
+                        <br>- Hardware Accelerator Architecture for LLM Inference
+                        <br>- Low-level System Optimization & Computer Graphics
+                    </li>
+                </ul>
+            </div>
         </section>
 
-        <!-- 프로젝트 이력 섹션 -->
-        <section id="projects">
-            <h2>Projects & Research</h2>
+        <!-- 2. 스터디 및 연구 -->
+        <section id="#research">
+            <h2>Studies & Researh</h2>
             
             <div class="project-card">
-                <h3>##</h3>
-                <span class="keyword">FlatQuant · GuidedQuant · Hardware Accelerator · Model Compression</span>
-                <p>##</p>
+                <h3>딥러닝 기초 및 아키텍처 스터디</h3>
+                <span class="keyword">Deep Learning</span>
+                <span class="keyword">Gradient Descent</span>
+                <span class="keyword">CNN</span>
+                <p>GDGOC 활동으로 인공지능 및 딥러닝 기초 스터디를 1년간 진행하였고, 연구실에서 MIT Introduction to Deep Learning 강의로 딥러닝의 수학적 구조 및 아키텍처의 기초를 다졌습니다.</p>
+                <a href="/blog/posts/deep-learning-study/" class="card-link">GDGOC 딥러닝 기초 스터디 ➔</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Pytorch를 이용한 데이터 파이프라인 스터디(Kaggle)</h3>
+                <span class="keyword">Data Preprocessing</span>
+                <span class="keyword">Machine Learning</span>
+                <span class="keyword">Pytorch</span>
+                <p>Kaggle 머신러닝 프로젝트를 통해서 실제 데이터셋 전처리와 모델 학습의 전체 파이프라인을 구성하고 사이클을 돌려보면서 실무적 경험을 쌓고, 스코어를 올리기 위해 다양한 방법을 써보며 데이터를 다루었습니다.
+                    GDGOC 겨울 프로젝트의 일환으로 kaggle competition "Predict Customer Churn"에 참여하여 전처리 및 데이터 가공 역할을 맡았습니다.
+                </p>
+                <a href="https://www.kaggle.com/taeyeon0102/code" class="card-link">Kaggle Projects ➔</a><br>
+                <a href="https://www.kaggle.com/code/tck1208/0-914-churn-prediction-imbalancehandling-stacking/edit" class="card-link">Kaggle Competition ➔</a>
+            </div>
+
+        </section>
+
+        <!-- 3. 프로젝트 -->
+        <section id="projects">
+            <h2>Projects</h2>
+
+            <!-- GDGOC 온디바이스 AI 프로젝트 -->
+            <div class="project-card">
+                <h3>실시간 온디바이스 보안 시스템 'Muggle Blocker' 개발 (PM & AI core)</h3>
+                <span class="keyword">On-device AI</span>
+                <span class="keyword">MediaPipe</span>
+                <span class="keyword">Multi-threading</span>
+                <span class="keyword">Optimization</span>
+                
+                <p><strong>GDGOC 온디바이스 AI 프로젝트 (수료식 발표)</strong></p>
+                <p>인가되지 않은 사용자(Muggle)로부터 노트북을 보호하는 실시간 엣지 AI 보안 시스템을 기획하고 개발했습니다.</p>
+                <ul>
+                    <li><strong>아키텍처 최적화:</strong> 고속 탐지를 위한 초경량 모델(MediaPipe BlazeFace)과 신원 검증을 위한 무거운 모델(ResNet34)을 멀티 스레드로 분리하여 웹캠 환경의 프레임 드랍(지연)을 방지했습니다.</li>
+                    <li><strong>연산량 트러블슈팅:</strong> 객체 탐지 연산량을 줄이기 위해 ROI 크롭을 도입했으나 해상도 저하로 인식률이 떨어지는 문제를 발견하고, Zero-padding 기법을 적용해 원본 해상도를 유지하면서 연산 최적화에 성공했습니다.</li>
+                    <li><strong>협업 리딩:</strong> Mac과 Windows 간의 dlib 및 CMake 의존성 충돌을 해결하여 빌드 환경을 통일하고, UI 상태(NORMAL/AWAY) 에셋 핸드오프를 주도했습니다.</li>
+                </ul>
+                
+                <!-- 블로그 글 작성 후 아래 링크를 활성화하세요 -->
+                <!-- <a href="/blog/기술-포스팅-링크" class="card-link">기술 최적화 노트 보러가기 ➔</a> -->
+                <!-- <a href="/blog/협업-포스팅-링크" class="card-link">협업 및 PM 회고 보러가기 ➔</a> -->
+                <a href="https://github.com/taeyeon0102/MuggleBlocker" class="card-link" target="_blank">GitHub ➔</a>
+            </div>
+
+
+        </section>
+
+        <!-- 3. 대외 활동 및 자기관리 섹션 -->
+        <section id="activities">
+            <h2>Activities & Personal Drive</h2>
+
+            <div class="activity-list">
+                <div class="activity-item">
+                    <h4></h4>
+                    <p></p>
+                </div>
+
             </div>
         </section>
     </main>
