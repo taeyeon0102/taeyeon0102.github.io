@@ -143,3 +143,13 @@ footer {
     color: var(--text-muted);
     border-top: 1px solid var(--border); 
 }
+.back-to-top {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:var(--pink-deep);
+    color: var(--bg-soft);
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+}

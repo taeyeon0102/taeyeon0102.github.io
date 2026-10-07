@@ -9,7 +9,7 @@
 <body>
 
     <!-- 상단 헤더 및 네비게이션 -->
-    <header>
+    <header id="top">
         <h1>안녕하세요, 컴퓨터공학 학부연구생 김태연 입니다.</h1>
         <p>AI 모델 경량화와 하드웨어 아키텍처 최적화 연구에 관심을 두고 있습니다.</p>
         <nav>
@@ -17,7 +17,7 @@
             <a href="#research">Studies & Research</a>
             <a href="#projects">Projects</a>
             <a href="#activities">Activities</a> |
-            <a href="/blog/">Devlog</a>
+            <a href="/blog/" target="_blank">Devlog</a>
             <a href="https://github.com/taeyeon0102" target="_blank">GitHub</a>
         </nav>
     </header>
@@ -43,8 +43,8 @@
         </section>
 
         <!-- 2. 스터디 및 연구 -->
-        <section id="#research">
-            <h2>Studies & Researh</h2>
+        <section id="research">
+            <h2>Studies & Research</h2>
             
             <div class="project-card">
                 <h3>딥러닝 기초 및 아키텍처 스터디</h3>
@@ -52,7 +52,7 @@
                 <span class="keyword">Gradient Descent</span>
                 <span class="keyword">CNN</span>
                 <p>GDGOC 활동으로 인공지능 및 딥러닝 기초 스터디를 1년간 진행하였고, 연구실에서 MIT Introduction to Deep Learning 강의로 딥러닝의 수학적 구조 및 아키텍처의 기초를 다졌습니다.</p>
-                <a href="/blog/posts/deep-learning-study/" class="card-link">GDGOC 딥러닝 기초 스터디 ➔</a>
+                <a href="/blog/posts/deep-learning-study/" target="_blank" class="card-link">GDGOC 딥러닝 기초 스터디 ➔</a>
             </div>
 
             <div class="project-card">
@@ -63,8 +63,8 @@
                 <p>Kaggle 머신러닝 프로젝트를 통해서 실제 데이터셋 전처리와 모델 학습의 전체 파이프라인을 구성하고 사이클을 돌려보면서 실무적 경험을 쌓고, 스코어를 올리기 위해 다양한 방법을 써보며 데이터를 다루었습니다.
                     GDGOC 겨울 프로젝트의 일환으로 kaggle competition "Predict Customer Churn"에 참여하여 전처리 및 데이터 가공 역할을 맡았습니다.
                 </p>
-                <a href="https://www.kaggle.com/taeyeon0102/code" class="card-link">Kaggle Projects ➔</a><br>
-                <a href="https://www.kaggle.com/code/tck1208/0-914-churn-prediction-imbalancehandling-stacking/edit" class="card-link">Kaggle Competition ➔</a>
+                <a href="https://www.kaggle.com/taeyeon0102/code" target="_blank" class="card-link">Kaggle Projects ➔</a><br>
+                <a href="https://www.kaggle.com/code/tck1208/0-914-churn-prediction-imbalancehandling-stacking/edit" target="_blank" class="card-link">Kaggle Competition ➔</a>
             </div>
 
         </section>
@@ -103,9 +103,16 @@
             <h2>Activities & Personal Drive</h2>
 
             <div class="activity-list">
+                <!-- 1. 꾸준한 개인 학습 아카이빙 -->
                 <div class="activity-item">
-                    <h4></h4>
-                    <p></p>
+                    <h4>Algorithm & CS Study Archiving</h4>
+                    <p>자료구조(Heap, BST 등) 및 알고리즘 분석(Big-O)과 컴퓨터 구조(ARM Assembly, Memory Hierarchy) 학습 내용을 꾸준히 마크다운으로 정리하여 블로그와 Notion에 기록하고 있습니다.</p>
+                </div>
+
+                <!-- 2. 꾸준함을 보여주는 취미 생활 (선택) -->
+                <div class="activity-item">
+                    <h4>Marathon Training & Consistency</h4>
+                    <p>꾸준한 체력 관리와 멘탈 관리를 위해 주 3회 이상 러닝을 하고 있으며, 2026 한강 나이트런과 같은 버추얼 마라톤에 꾸준히 참여하고 있습니다. 장기적인 목표 달성을 향한 끈기를 코딩에도 적용합니다.</p>
                 </div>
 
             </div>
@@ -115,6 +122,16 @@
     <!-- 하단 푸터 -->
     <footer>
         <p>Copyrights &copy; 2026 Kim Tae Yeon. All rights reserved.</p>
+
+        <!-- Contact Information with a phone number and an email address -->
+        <p> TEL. 010-5572-3246 | <a href="mailto:tayyynnn@hufs.ac.kr">Email: tayyynnn@hufs.ac.kr</a> </p>
+
+        <!-- "Back to Top" link -->
+        <a href="#top" class="back-to-top">
+            &uarr; Back to top
+        </a>
+
+
     </footer>
 
 </body>
